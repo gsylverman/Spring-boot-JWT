@@ -12,7 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/")
+@CrossOrigin("*")
+@RequestMapping("/api")
 public class ResourceController {
 
     @Autowired
@@ -26,11 +27,11 @@ public class ResourceController {
 
     private String token;
 
-    @GetMapping("/")
-    public String home() {
-        String name = jwtUtility.getUsernameFromToken(token);
-        return "Hello " + name;
-    }
+//    @GetMapping("/")
+//    public String home() {
+//        String name = jwtUtility.getUsernameFromToken(token);
+//        return "Hello " + name;
+//    }
 
     @PostMapping("/authenticate")
     public JwtResponse authenticate(@RequestBody JwtRequest jwtRequest) throws Exception {
