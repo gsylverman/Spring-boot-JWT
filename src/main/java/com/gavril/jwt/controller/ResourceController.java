@@ -35,7 +35,6 @@ public class ResourceController {
 
     @PostMapping("/authenticate")
     public JwtResponse authenticate(@RequestBody JwtRequest jwtRequest) throws Exception {
-
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
